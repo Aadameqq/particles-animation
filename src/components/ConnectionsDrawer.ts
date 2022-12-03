@@ -1,12 +1,13 @@
 import CartesianSystemType from "../types/CartesianSystemType";
 import Particle from "./Particle";
+import { PlainManager } from "./PlainManager";
 
 class ConnectionsDrawer {
   private LINE_COLOR = "#ecebebc2";
   private MIN_DISTANCE_FOR_CONNECTION = 8;
   private MAX_DISTANCE_FOR_CONNECTION: number = 200;
 
-  constructor(private ctx: CanvasRenderingContext2D) {}
+  constructor(private plainManager: PlainManager) {}
 
   public drawParticlesConnections = (particlesList: Particle[]) => {
     let lastParticleIndex = 0;
@@ -59,12 +60,12 @@ class ConnectionsDrawer {
     secondParticlePosition: CartesianSystemType,
     distance: CartesianSystemType
   ) => {
-    this.ctx.beginPath();
-    this.ctx.moveTo(firstParticlePosition.x, firstParticlePosition.y);
-    this.ctx.strokeStyle = this.LINE_COLOR;
-    this.ctx.lineWidth = this.calculateLineWidthBasedOnDistance(distance);
-    this.ctx.lineTo(secondParticlePosition.x, secondParticlePosition.y);
-    this.ctx.stroke();
+    this.plainManager.drawLine(
+      firstParticlePosition,
+      secondParticlePosition,
+      this.calculateLineWidthBasedOnDistance(distance),
+      this.LINE_COLOR
+    );
   };
 
   private calculateLineWidthBasedOnDistance = (
