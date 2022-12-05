@@ -19,7 +19,7 @@ class AnimationScene {
 	onUpdate = () => {
 		this.plainManager.cleanPlain();
 		const connectionsDrawer = new ConnectionsDrawer(this.plainManager);
-		connectionsDrawer.drawParticlesConnections(
+		connectionsDrawer.drawAllConnections(
 			this.particlesList?.getParticles()!
 		);
 		this.particlesList!.updateParticles();
