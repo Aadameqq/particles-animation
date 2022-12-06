@@ -1,10 +1,10 @@
 import { ParticleRendererImplementation } from './ParticleRendererImplementation';
-import cartesianSystemType from '../types/CartesianSystemType';
-import Particle from './Particle';
-import randomValue from '../utils/randomValue';
-import randomPosition from '../utils/randomPosition';
+import { Particle } from './Particle';
+import { randomValue } from '../utils/randomValue';
+import { randomPosition } from '../utils/randomPosition';
 import { PlainManager } from './PlainManager';
 import { PlainSize } from './PlainSize';
+import { CartesianSystemType } from '../types/CartesianSystemType';
 
 export class ParticleFactory {
 	constructor(
@@ -12,12 +12,12 @@ export class ParticleFactory {
 		private plainSize: PlainSize
 	) {}
 
-	public create(
-		position: cartesianSystemType = randomPosition(
+	public create = (
+		position: CartesianSystemType = randomPosition(
 			this.plainSize.getSize().width,
 			this.plainSize.getSize().height
 		)
-	) {
+	) => {
 		const particleRenderer = new ParticleRendererImplementation(
 			this.plainManager
 		);
@@ -37,5 +37,5 @@ export class ParticleFactory {
 			angle,
 			radius
 		);
-	}
+	};
 }

@@ -1,4 +1,4 @@
-import CartesianSystemType from '../types/CartesianSystemType';
+import { CartesianSystemType } from '../types/CartesianSystemType';
 
 export interface PlainManager {
 	cleanPlain: () => void;

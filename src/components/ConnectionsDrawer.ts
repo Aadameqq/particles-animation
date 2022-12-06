@@ -1,11 +1,9 @@
-import CartesianSystemType from '../types/CartesianSystemType';
-import Particle from './Particle';
 import { PlainManager } from './PlainManager';
 import { Connection } from './Connection';
 import { Point } from './Point';
 import { ConnectionFinder } from './ConnectionFinder';
 
-class ConnectionsDrawer {
+export class ConnectionsDrawer {
 	private LINE_COLOR = '#ecebebc2';
 
 	constructor(private plainManager: PlainManager) {}
@@ -24,6 +22,3 @@ class ConnectionsDrawer {
 		);
 	};
 }
-
-export default ConnectionsDrawer;
-// TODO: add codestyle for arrow and normal functions

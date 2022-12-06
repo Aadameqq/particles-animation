@@ -1,9 +1,8 @@
-import CartesianSystemType from '../types/CartesianSystemType';
+import { CartesianSystemType } from '../types/CartesianSystemType';
 import { ParticleRenderer } from './ParticleRenderer';
 import { PlainSize } from './PlainSize';
-import randomValue from '../utils/randomValue';
 
-export default class Particle {
+export class Particle {
 	public static readonly PARTICLE_COLOR = '#d8d8d8';
 	private static readonly SPEED = 0.8;
 

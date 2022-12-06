@@ -1,4 +1,4 @@
-import CartesianSystemType from '../types/CartesianSystemType';
+import { CartesianSystemType } from '../types/CartesianSystemType';
 import { PlainManager } from './PlainManager';
 import { PlainSize } from './PlainSize';
 
@@ -17,11 +17,11 @@ export class PlainManagerImplementation implements PlainManager {
 		);
 	};
 
-	public drawCircle(
+	public drawCircle = (
 		position: CartesianSystemType,
 		radius: number,
 		color: string
-	) {
+	) => {
 		const CIRCLE_START_ANGLE_IN_RADIANS = 0;
 		const CIRCLE_END_ANGLE_IN_RADIANS = 2 * Math.PI;
 
@@ -35,19 +35,19 @@ export class PlainManagerImplementation implements PlainManager {
 			CIRCLE_END_ANGLE_IN_RADIANS
 		);
 		this.context.fill();
-	}
+	};
 
-	public drawLine(
+	public drawLine = (
 		startPosition: CartesianSystemType,
 		endPosition: CartesianSystemType,
 		thickness: number,
 		color: string
-	) {
+	) => {
 		this.context.beginPath();
 		this.context.moveTo(startPosition.x, startPosition.y);
 		this.context.strokeStyle = color;
 		this.context.lineWidth = thickness;
 		this.context.lineTo(endPosition.x, endPosition.y);
 		this.context.stroke();
-	}
+	};
 }

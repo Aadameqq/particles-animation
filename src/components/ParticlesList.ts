@@ -1,8 +1,8 @@
-import CartesianSystemType from '../types/CartesianSystemType';
-import Particle from './Particle';
+import { CartesianSystemType } from '../types/CartesianSystemType';
+import { Particle } from './Particle';
 import { ParticleFactory } from './ParticleFactory';
 
-class ParticlesList {
+export class ParticlesList {
 	private static readonly PARTICLES_NUMBER = 100;
 	private particles: Particle[] = [];
 
@@ -30,9 +30,9 @@ class ParticlesList {
 		});
 	};
 
-	public getParticles() {
+	public getParticles = () => {
 		return this.particles;
-	}
+	};
 
 	public reduceParticlesCount = (particle: Particle) => {
 		if (
@@ -44,5 +44,3 @@ class ParticlesList {
 		}
 	};
 }
-
-export default ParticlesList;
