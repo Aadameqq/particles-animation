@@ -57,3 +57,5 @@ export class Animation {
 		this.particlesList?.addNewParticle({ x: clientX, y: clientY });
 	};
 }
+//TODO: add index files and export only needed things
+//TODO: add support for mobile phones

@@ -32,7 +32,7 @@ export class ParticlesList {
 		return this.particles;
 	};
 
-	public reduceParticlesCount = (particle: Particle) => {
+	private reduceParticlesCount = (particle: Particle) => {
 		if (
 			particle.isTooFarFromPlain() &&
 			this.particles.length > ParticlesList.PARTICLES_NUMBER
