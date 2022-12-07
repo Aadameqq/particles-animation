@@ -1,19 +1,19 @@
-import { CartesianSystemType } from '../types/CartesianSystemType';
-import { PlainManager } from './PlainManager';
-import { PlainSize } from './PlainSize';
+import { CartesianSystemType } from '../../types/CartesianSystemType';
+import { IPlainManager } from './IPlainManager';
+import { IPlainSize } from './IPlainSize';
 
-export class PlainManagerImplementation implements PlainManager {
+export class PlainManager implements IPlainManager {
 	constructor(
 		private context: CanvasRenderingContext2D,
-		private plainSize: PlainSize
+		private plainSize: IPlainSize
 	) {}
 
 	public cleanPlain = () => {
 		this.context!.clearRect(
 			0,
 			0,
-			this.plainSize.getSize().width,
-			this.plainSize.getSize().height
+			this.plainSize.getWidth(),
+			this.plainSize.getHeight()
 		);
 	};
 

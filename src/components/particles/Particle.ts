@@ -1,14 +1,14 @@
-import { CartesianSystemType } from '../types/CartesianSystemType';
-import { ParticleRenderer } from './ParticleRenderer';
-import { PlainSize } from './PlainSize';
+import { CartesianSystemType } from '../../types/CartesianSystemType';
+import { IParticleRenderer } from './IParticleRenderer';
+import { IPlainSize } from '../plain/IPlainSize';
 
 export class Particle {
 	public static readonly PARTICLE_COLOR = '#d8d8d8';
-	private static readonly SPEED = 0.8;
+	private static readonly SPEED = 1;
 
 	constructor(
-		private plainSize: PlainSize,
-		private particleRenderer: ParticleRenderer,
+		private plainSize: IPlainSize,
+		private particleRenderer: IParticleRenderer,
 		public readonly position: CartesianSystemType,
 		private angle: number,
 		private readonly radius: number
@@ -27,9 +27,9 @@ export class Particle {
 	};
 
 	private isOutsideGivenPlain = () =>
-		this.position.x > this.plainSize.getSize().width + this.radius ||
+		this.position.x > this.plainSize.getWidth() + this.radius ||
 		this.position.x < -this.radius ||
-		this.position.y > this.plainSize.getSize().height + this.radius ||
+		this.position.y > this.plainSize.getHeight() + this.radius ||
 		this.position.y < -this.radius;
 
 	private changeAngleWhenTooFarFromPlain = () => {
@@ -43,10 +43,10 @@ export class Particle {
 
 		return (
 			this.position.x >
-				this.plainSize.getSize().width + MAX_DISTANCE_FROM_BORDER ||
+				this.plainSize.getWidth() + MAX_DISTANCE_FROM_BORDER ||
 			this.position.x < -MAX_DISTANCE_FROM_BORDER ||
 			this.position.y >
-				this.plainSize.getSize().height + MAX_DISTANCE_FROM_BORDER ||
+				this.plainSize.getHeight() + MAX_DISTANCE_FROM_BORDER ||
 			this.position.y < -MAX_DISTANCE_FROM_BORDER
 		);
 	};

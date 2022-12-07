@@ -1,6 +1,6 @@
-import { CartesianSystemType } from '../types/CartesianSystemType';
+import { CartesianSystemType } from '../../types/CartesianSystemType';
 
-export interface PlainManager {
+export interface IPlainManager {
 	cleanPlain: () => void;
 	drawCircle: (
 		position: CartesianSystemType,

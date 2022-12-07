@@ -1,14 +1,12 @@
-import { CartesianSystemType } from '../types/CartesianSystemType';
+import { CartesianSystemType } from '../../types/CartesianSystemType';
 import { Particle } from './Particle';
-import { ParticleFactory } from './ParticleFactory';
+import { IParticleFactory } from './IParticleFactory';
 
 export class ParticlesList {
 	private static readonly PARTICLES_NUMBER = 100;
 	private particles: Particle[] = [];
 
-	constructor(
-		private particleFactory: ParticleFactory //TODO: add interface
-	) {
+	constructor(private particleFactory: IParticleFactory) {
 		this.initializeDefaultParticles();
 	}
 

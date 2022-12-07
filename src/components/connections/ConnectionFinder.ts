@@ -1,6 +1,6 @@
 import { Point } from './Point';
 import { Connection } from './Connection';
-import { CartesianSystemType } from '../types/CartesianSystemType';
+import { CartesianSystemType } from '../../types/CartesianSystemType';
 
 export class ConnectionFinder {
 	private MIN_DISTANCE_FOR_CONNECTION = 8;
