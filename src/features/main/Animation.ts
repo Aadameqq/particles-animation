@@ -7,17 +7,17 @@ import { PlainManager } from '../plain/PlainManager';
 import { IPlainSize } from '../plain/IPlainSize';
 
 export class Animation {
-	private particlesList: ParticlesList;
-	private connectionsDrawer: ConnectionsDrawer;
-	private plainSize: IPlainSize = new PlainSize(0, 0);
+	private readonly particlesList: ParticlesList;
+	private readonly connectionsDrawer: ConnectionsDrawer;
+	private readonly plainSize: IPlainSize;
 
-	private plainManager: IPlainManager;
+	private readonly plainManager: IPlainManager;
 
 	constructor(
 		private canvas: HTMLCanvasElement,
 		private ctx: CanvasRenderingContext2D
 	) {
-		this.updateScreenSize();
+		this.plainSize = new PlainSize(0, 0, canvas);
 		this.plainManager = new PlainManager(ctx, this.plainSize);
 
 		const particleFactory = new ParticleFactory(
@@ -47,18 +47,11 @@ export class Animation {
 	};
 
 	private initializeEventListeners = () => {
-		window.addEventListener('resize', this.updateScreenSize);
 		document.addEventListener('click', this.handleClick);
+		window.addEventListener('resize', this.plainSize.updateSize);
 	};
 
 	private handleClick = ({ clientX, clientY }) => {
 		this.particlesList?.addNewParticle({ x: clientX, y: clientY });
-	};
-
-	private updateScreenSize = () => {
-		this.plainSize.setSize(window.innerWidth, window.innerHeight);
-
-		this.canvas.width = this.plainSize.getWidth();
-		this.canvas.height = this.plainSize.getHeight();
 	};
 }
