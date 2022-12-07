@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">Particles Animation</h1>
+<h1 align="center">Particles Animation</h1>
 
 ![img.png](img.png)
 ## 📰 About
