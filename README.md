@@ -3,7 +3,8 @@
 ![img.png](img.png)
 ## 📰 About
 
-This is <b>particles animation</b> made in <b><a href="https://www.typescriptlang.org/">Typescript</a></b>. Each particle has a connection to another when they are close enough. The thickness of the line connecting the particles depends on their distance. 
+This is <b>particles animation</b> made in <b><a href="https://www.typescriptlang.org/">Typescript</a></b>. Each particle has a connection to another when they are close enough. The thickness of the line connecting the particles depends on their distance.
+<b>Clicking</b> on the screen will <b>create</b> a <b>new particle</b> at cursor position. 
 <br> In this project, I tried to follow the principles of <b>clean code</b> and make most of the code <b>reusable</b>.
 
 ## 🔧 Run application
