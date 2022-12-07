@@ -6,11 +6,7 @@ import { IPlainManager } from '../plain/IPlainManager';
 export class ParticleRenderer implements IParticleRenderer {
 	constructor(private plainManager: IPlainManager) {}
 
-	public render = (particlePosition: CartesianSystemType, radius: number) => {
-		this.plainManager.drawCircle(
-			particlePosition,
-			radius,
-			Particle.PARTICLE_COLOR
-		);
+	public render = (position: CartesianSystemType, radius: number) => {
+		this.plainManager.drawCircle(position, radius, Particle.PARTICLE_COLOR);
 	};
 }

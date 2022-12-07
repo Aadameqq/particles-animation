@@ -18,6 +18,8 @@ export class Animation {
 		private ctx: CanvasRenderingContext2D
 	) {
 		this.plainSize = new PlainSize(0, 0, canvas);
+		this.plainSize.updateSize();
+
 		this.plainManager = new PlainManager(ctx, this.plainSize);
 
 		const particleFactory = new ParticleFactory(

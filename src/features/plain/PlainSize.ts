@@ -15,8 +15,8 @@ export class PlainSize implements IPlainSize {
 	public updateSize = () => {
 		this.setSize(window.innerWidth, window.innerHeight);
 
-		this.canvas.width = this.getWidth();
-		this.canvas.height = this.getHeight();
+		this.canvas.width = window.innerWidth;
+		this.canvas.height = window.innerHeight;
 	};
 
 	public getWidth = () => this.width;
