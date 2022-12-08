@@ -15,8 +15,12 @@ export class PlainSize implements IPlainSize {
 	public updateSize = () => {
 		this.setSize(window.innerWidth, window.innerHeight);
 
-		this.canvas.width = this.canvas.getBoundingClientRect().width;
-		this.canvas.height = this.canvas.getBoundingClientRect().height;
+		const ratio = window.devicePixelRatio;
+
+		this.canvas.width = Math.floor(window.innerWidth * ratio);
+		this.canvas.height = Math.floor(window.innerHeight * ratio);
+
+		this.canvas.getContext('2d')!.scale(ratio, ratio);
 	};
 
 	public getWidth = () => this.width;
