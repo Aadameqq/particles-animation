@@ -26,7 +26,10 @@ export class Animation {
 			this.plainManager,
 			this.plainSize
 		);
-		this.particlesList = new ParticlesList(particleFactory);
+		this.particlesList = new ParticlesList(
+			particleFactory,
+			this.plainSize.getWidth() / 10
+		);
 
 		this.connectionsDrawer = new ConnectionsDrawer(this.plainManager);
 	}
@@ -53,7 +56,13 @@ export class Animation {
 		window.addEventListener('resize', this.plainSize.updateSize);
 	};
 
-	private handleClick = ({ clientX, clientY }) => {
+	private handleClick = ({
+		clientX,
+		clientY,
+	}: {
+		clientX: number;
+		clientY: number;
+	}) => {
 		this.particlesList?.addNewParticle({ x: clientX, y: clientY });
 	};
 }

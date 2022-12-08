@@ -3,15 +3,17 @@ import { Particle } from './Particle';
 import { IParticleFactory } from './IParticleFactory';
 
 export class ParticlesList {
-	private static readonly PARTICLES_NUMBER = 100;
 	private particles: Particle[] = [];
 
-	constructor(private particleFactory: IParticleFactory) {
+	constructor(
+		private particleFactory: IParticleFactory,
+		private particlesNumber: number = 100
+	) {
 		this.initializeDefaultParticles();
 	}
 
 	private initializeDefaultParticles = () => {
-		for (let i = 0; i < ParticlesList.PARTICLES_NUMBER; i++) {
+		for (let i = 0; i < this.particlesNumber; i++) {
 			this.addNewParticle();
 		}
 	};
@@ -35,7 +37,7 @@ export class ParticlesList {
 	private reduceParticlesCount = (particle: Particle) => {
 		if (
 			particle.isTooFarFromPlain() &&
-			this.particles.length > ParticlesList.PARTICLES_NUMBER
+			this.particles.length > this.particlesNumber
 		) {
 			console.log(this.particles.length);
 			this.particles = this.particles.filter((x) => x !== particle);

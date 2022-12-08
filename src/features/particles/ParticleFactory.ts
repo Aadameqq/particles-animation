@@ -25,8 +25,8 @@ export class ParticleFactory implements IParticleFactory {
 		const MAX_ANGLE = 360;
 		const angle = randomValue(MIN_ANGLE, MAX_ANGLE);
 
-		const MIN_SIZE = 2;
-		const MAX_SIZE = 5;
+		const MIN_SIZE = 0.5;
+		const MAX_SIZE = 4;
 		const radius = randomValue(MIN_SIZE, MAX_SIZE);
 
 		return new Particle(

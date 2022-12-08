@@ -4,7 +4,7 @@ import { CartesianSystemType } from '../../types/CartesianSystemType';
 
 export class ConnectionFinder {
 	private MIN_DISTANCE_FOR_CONNECTION = 8;
-	private MAX_DISTANCE_FOR_CONNECTION: number = 200;
+	private MAX_DISTANCE_FOR_CONNECTION: number = 150;
 
 	constructor(private points: Point[]) {}
 

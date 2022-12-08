@@ -7,7 +7,7 @@ export class PlainSize implements IPlainSize {
 		private canvas: HTMLCanvasElement
 	) {}
 
-	public setSize = (width, height) => {
+	public setSize = (width: number, height: number) => {
 		this.width = width;
 		this.height = height;
 	};
@@ -15,15 +15,8 @@ export class PlainSize implements IPlainSize {
 	public updateSize = () => {
 		this.setSize(window.innerWidth, window.innerHeight);
 
-		const ratio = Math.ceil(window.devicePixelRatio);
-
-		this.canvas.width = window.innerWidth * ratio;
-		this.canvas.height = window.innerHeight * ratio;
-
-		this.canvas.style.width = `${window.innerWidth}px`;
-		this.canvas.style.height = `${window.innerHeight}px`;
-
-		this.canvas.getContext('2d')!.setTransform(ratio, 0, 0, ratio, 0, 0);
+		this.canvas.width = this.canvas.getBoundingClientRect().width;
+		this.canvas.height = this.canvas.getBoundingClientRect().height;
 	};
 
 	public getWidth = () => this.width;

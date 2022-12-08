@@ -1,2 +1,2 @@
-export const randomValue = (min, max) =>
+export const randomValue = (min: number, max: number) =>
 	Math.floor(Math.random() * (max - min)) + min;
