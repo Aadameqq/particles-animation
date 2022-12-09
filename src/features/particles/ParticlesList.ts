@@ -39,7 +39,6 @@ export class ParticlesList {
 			particle.isTooFarFromPlain() &&
 			this.particles.length > this.particlesNumber
 		) {
-			console.log(this.particles.length);
 			this.particles = this.particles.filter((x) => x !== particle);
 		}
 	};

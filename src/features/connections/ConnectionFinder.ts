@@ -1,10 +1,9 @@
 import { Point } from './Point';
 import { Connection } from './Connection';
-import { CartesianSystemType } from '../../types/CartesianSystemType';
+import { calculatePythagoras } from '../../utils/calculatePythagoras';
 
 export class ConnectionFinder {
-	private MIN_DISTANCE_FOR_CONNECTION = 8;
-	private MAX_DISTANCE_FOR_CONNECTION: number = 150;
+	private MAX_DISTANCE_FOR_CONNECTION: number = 170;
 
 	constructor(private points: Point[]) {}
 
@@ -33,40 +32,36 @@ export class ConnectionFinder {
 			firstPoint,
 			secondPoint
 		);
-		const connectionWidth =
-			this.calculateConnectionWidthBasedOnDistance(distance);
+		const connectionStrength =
+			this.calculateConnectionStrengthBasedOnDistance(distance);
 
 		if (!this.arePointsCloseEnough(distance)) return false;
 
-		return new Connection(firstPoint, secondPoint, connectionWidth);
+		return new Connection(firstPoint, secondPoint, connectionStrength);
 	};
 
-	private arePointsCloseEnough = (distance: CartesianSystemType) =>
-		distance.x < this.MAX_DISTANCE_FOR_CONNECTION &&
-		distance.y < this.MAX_DISTANCE_FOR_CONNECTION;
+	private arePointsCloseEnough = (distance: number) =>
+		distance < this.MAX_DISTANCE_FOR_CONNECTION;
 
-	private calculateConnectionWidthBasedOnDistance = (
-		distance: CartesianSystemType
-	) => {
-		const invertedDistance =
-			this.MAX_DISTANCE_FOR_CONNECTION - Math.max(distance.x, distance.y);
+	private calculateConnectionStrengthBasedOnDistance = (distance: number) => {
+		const invertedDistance = this.MAX_DISTANCE_FOR_CONNECTION - distance;
 
-		const finalInvertedDistance = Math.max(
-			invertedDistance,
-			this.MIN_DISTANCE_FOR_CONNECTION
-		);
-
-		return finalInvertedDistance / this.MAX_DISTANCE_FOR_CONNECTION;
+		return invertedDistance / this.MAX_DISTANCE_FOR_CONNECTION;
 	};
 
 	private calculateDistanceBetweenPoints = (
 		firstPoint: Point,
 		secondPoint: Point
 	) => {
-		const distance = {
+		const distanceInEachAxis = {
 			x: Math.abs(firstPoint.position.x - secondPoint.position.x),
 			y: Math.abs(firstPoint.position.y - secondPoint.position.y),
 		};
+
+		const distance = Math.floor(
+			calculatePythagoras(distanceInEachAxis.x, distanceInEachAxis.y)
+		);
+
 		return distance;
 	};
 }

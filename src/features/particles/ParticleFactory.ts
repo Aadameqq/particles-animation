@@ -8,10 +8,14 @@ import { IParticleFactory } from './IParticleFactory';
 import { IPlainSize } from '../plain/IPlainSize';
 
 export class ParticleFactory implements IParticleFactory {
+	private readonly particleRenderer: ParticleRenderer;
+
 	constructor(
 		private plainManager: IPlainManager,
 		private plainSize: IPlainSize
-	) {}
+	) {
+		this.particleRenderer = new ParticleRenderer(plainManager);
+	}
 
 	public create = (
 		position: CartesianSystemType = randomPosition(
@@ -19,19 +23,17 @@ export class ParticleFactory implements IParticleFactory {
 			this.plainSize.getHeight()
 		)
 	) => {
-		const particleRenderer = new ParticleRenderer(this.plainManager);
-
 		const MIN_ANGLE = 0;
 		const MAX_ANGLE = 360;
 		const angle = randomValue(MIN_ANGLE, MAX_ANGLE);
 
-		const MIN_SIZE = 0.5;
+		const MIN_SIZE = 1.5;
 		const MAX_SIZE = 4;
 		const radius = randomValue(MIN_SIZE, MAX_SIZE);
 
 		return new Particle(
 			this.plainSize,
-			particleRenderer,
+			this.particleRenderer,
 			position,
 			angle,
 			radius

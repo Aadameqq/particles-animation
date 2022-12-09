@@ -4,7 +4,7 @@ import { IPlainSize } from '../plain/IPlainSize';
 
 export class Particle {
 	public static readonly PARTICLE_COLOR = '#d8d8d8';
-	private static readonly SPEED = 1;
+	private static readonly SPEED = 0.8;
 
 	constructor(
 		private plainSize: IPlainSize,
