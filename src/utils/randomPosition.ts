@@ -1,12 +1,8 @@
-import randomValue from "./randomValue";
+import { randomValue } from './randomValue';
+import { Position } from './Position';
 
-const randomPosition = (maxX, maxY) => {
-  const position = {
-    x: randomValue(0, maxX),
-    y: randomValue(0, maxY),
-  };
+export const randomPosition = (maxX: number, maxY: number) => {
+	const position = new Position(randomValue(0, maxX), randomValue(0, maxY));
 
-  return position;
+	return position;
 };
-
-export default randomPosition;
