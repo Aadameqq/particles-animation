@@ -1,4 +1,4 @@
-import { IPlainManager } from '../plain/IPlainManager';
+import { IPlainManager } from '../plain';
 import { Connection } from './Connection';
 import { Point } from '../../utils/Point';
 import { ConnectionFinder } from './ConnectionFinder';

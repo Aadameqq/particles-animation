@@ -1,5 +1,5 @@
 import { IParticleRenderer } from './IParticleRenderer';
-import { IPlainSize } from '../plain/IPlainSize';
+import { IPlainSize } from '../plain';
 import { Position } from '../../utils/Position';
 
 export class Particle {

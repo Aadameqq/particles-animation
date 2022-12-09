@@ -1,10 +1,6 @@
-import { ParticlesList } from '../particles/ParticlesList';
-import { ParticleFactory } from '../particles/ParticleFactory';
-import { IPlainManager } from '../plain/IPlainManager';
-import { ConnectionsDrawer } from '../connections/ConnectionsDrawer';
-import { PlainSize } from '../plain/PlainSize';
-import { PlainManager } from '../plain/PlainManager';
-import { IPlainSize } from '../plain/IPlainSize';
+import { ParticlesList, ParticleFactory } from '../particles';
+import { IPlainManager, PlainManager, PlainSize, IPlainSize } from '../plain';
+import { ConnectionsDrawer } from '../connections';
 import { Position } from '../../utils/Position';
 
 export class Animation {
@@ -67,4 +63,3 @@ export class Animation {
 		this.particlesList?.addNewParticle(position);
 	};
 }
-//TODO: add index files and export only needed things

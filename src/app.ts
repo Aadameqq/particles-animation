@@ -1,4 +1,4 @@
-import { Animation } from './features/main/Animation';
+import { Animation } from './features/main';
 
 window.onload = () => {
 	const canvas = document.querySelector(`.canvas`);

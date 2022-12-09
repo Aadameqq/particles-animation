@@ -2,9 +2,8 @@ import { ParticleRenderer } from './ParticleRenderer';
 import { Particle } from './Particle';
 import { randomValue } from '../../utils/randomValue';
 import { randomPosition } from '../../utils/randomPosition';
-import { IPlainManager } from '../plain/IPlainManager';
+import { IPlainManager, IPlainSize } from '../plain';
 import { IParticleFactory } from './IParticleFactory';
-import { IPlainSize } from '../plain/IPlainSize';
 
 export class ParticleFactory implements IParticleFactory {
 	private readonly particleRenderer: ParticleRenderer;

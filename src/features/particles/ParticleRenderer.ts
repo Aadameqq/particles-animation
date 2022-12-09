@@ -1,6 +1,6 @@
 import { IParticleRenderer } from './IParticleRenderer';
 import { Particle } from './Particle';
-import { IPlainManager } from '../plain/IPlainManager';
+import { IPlainManager } from '../plain';
 import { Position } from '../../utils/Position';
 
 export class ParticleRenderer implements IParticleRenderer {
