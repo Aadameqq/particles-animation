@@ -1,6 +1,6 @@
 import { IPlainManager } from '../plain/IPlainManager';
 import { Connection } from './Connection';
-import { Point } from './Point';
+import { Point } from '../../utils/Point';
 import { ConnectionFinder } from './ConnectionFinder';
 import { Rgba } from '../../utils/Rgba';
 
@@ -10,7 +10,7 @@ export class ConnectionsDrawer {
 	constructor(private plainManager: IPlainManager) {}
 
 	public drawAllConnections = (points: Point[]) => {
-		const connectionFinder = new ConnectionFinder(points); //TODO: fix creating new class instance on every function call
+		const connectionFinder = new ConnectionFinder(points);
 		connectionFinder.passEveryConnectionToCallback(this.drawConnection);
 	};
 

@@ -4,7 +4,8 @@ export class PlainSize implements IPlainSize {
 	constructor(
 		private width: number,
 		private height: number,
-		private canvas: HTMLCanvasElement
+		private canvas: HTMLCanvasElement,
+		private ctx: CanvasRenderingContext2D
 	) {}
 
 	public setSize = (width: number, height: number) => {
@@ -20,7 +21,7 @@ export class PlainSize implements IPlainSize {
 		this.canvas.width = Math.floor(window.innerWidth * ratio);
 		this.canvas.height = Math.floor(window.innerHeight * ratio);
 
-		this.canvas.getContext('2d')!.scale(ratio, ratio);
+		this.ctx.scale(ratio, ratio);
 	};
 
 	public getWidth = () => this.width;

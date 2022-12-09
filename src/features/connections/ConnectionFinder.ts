@@ -1,4 +1,4 @@
-import { Point } from './Point';
+import { Point } from '../../utils/Point';
 import { Connection } from './Connection';
 import { calculatePythagoras } from '../../utils/calculatePythagoras';
 

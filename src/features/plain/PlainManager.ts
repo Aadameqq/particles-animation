@@ -1,6 +1,6 @@
-import { CartesianSystemType } from '../../types/CartesianSystemType';
 import { IPlainManager } from './IPlainManager';
 import { IPlainSize } from './IPlainSize';
+import { Position } from '../../utils/Position';
 
 export class PlainManager implements IPlainManager {
 	constructor(
@@ -17,11 +17,7 @@ export class PlainManager implements IPlainManager {
 		);
 	};
 
-	public drawCircle = (
-		position: CartesianSystemType,
-		radius: number,
-		color: string
-	) => {
+	public drawCircle = (position: Position, radius: number, color: string) => {
 		const CIRCLE_START_ANGLE_IN_RADIANS = 0;
 		const CIRCLE_END_ANGLE_IN_RADIANS = 2 * Math.PI;
 
@@ -38,8 +34,8 @@ export class PlainManager implements IPlainManager {
 	};
 
 	public drawLine = (
-		startPosition: CartesianSystemType,
-		endPosition: CartesianSystemType,
+		startPosition: Position,
+		endPosition: Position,
 		thickness: number,
 		color: string
 	) => {

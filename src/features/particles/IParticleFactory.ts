@@ -1,6 +1,6 @@
 import { Particle } from './Particle';
-import { CartesianSystemType } from '../../types/CartesianSystemType';
+import { Position } from '../../utils/Position';
 
 export interface IParticleFactory {
-	create: (position?: CartesianSystemType) => Particle;
+	create: (position?: Position) => Particle;
 }

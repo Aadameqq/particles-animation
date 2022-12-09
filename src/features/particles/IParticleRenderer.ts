@@ -1,5 +1,5 @@
-import { CartesianSystemType } from '../../types/CartesianSystemType';
+import { Position } from '../../utils/Position';
 
 export interface IParticleRenderer {
-	render: (position: CartesianSystemType, radius: number) => void;
+	render: (position: Position, radius: number) => void;
 }

@@ -5,19 +5,19 @@ import { ConnectionsDrawer } from '../connections/ConnectionsDrawer';
 import { PlainSize } from '../plain/PlainSize';
 import { PlainManager } from '../plain/PlainManager';
 import { IPlainSize } from '../plain/IPlainSize';
+import { Position } from '../../utils/Position';
 
 export class Animation {
 	private readonly particlesList: ParticlesList;
 	private readonly connectionsDrawer: ConnectionsDrawer;
 	private readonly plainSize: IPlainSize;
-
 	private readonly plainManager: IPlainManager;
 
 	constructor(
 		private canvas: HTMLCanvasElement,
 		private ctx: CanvasRenderingContext2D
 	) {
-		this.plainSize = new PlainSize(0, 0, canvas);
+		this.plainSize = new PlainSize(0, 0, canvas, ctx);
 		this.plainSize.updateSize();
 
 		this.plainManager = new PlainManager(ctx, this.plainSize);
@@ -63,8 +63,8 @@ export class Animation {
 		clientX: number;
 		clientY: number;
 	}) => {
-		this.particlesList?.addNewParticle({ x: clientX, y: clientY });
+		const position = new Position(clientX, clientY);
+		this.particlesList?.addNewParticle(position);
 	};
 }
 //TODO: add index files and export only needed things
-//TODO: add support for mobile phones

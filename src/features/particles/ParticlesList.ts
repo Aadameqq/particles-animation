@@ -1,6 +1,6 @@
-import { CartesianSystemType } from '../../types/CartesianSystemType';
 import { Particle } from './Particle';
 import { IParticleFactory } from './IParticleFactory';
+import { Position } from '../../utils/Position';
 
 export class ParticlesList {
 	private particles: Particle[] = [];
@@ -18,7 +18,7 @@ export class ParticlesList {
 		}
 	};
 
-	public addNewParticle = (position?: CartesianSystemType) => {
+	public addNewParticle = (position?: Position) => {
 		const particle = this.particleFactory.create(position);
 		this.particles.push(particle);
 	};

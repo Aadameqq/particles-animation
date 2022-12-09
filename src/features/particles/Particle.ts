@@ -1,6 +1,6 @@
-import { CartesianSystemType } from '../../types/CartesianSystemType';
 import { IParticleRenderer } from './IParticleRenderer';
 import { IPlainSize } from '../plain/IPlainSize';
+import { Position } from '../../utils/Position';
 
 export class Particle {
 	public static readonly PARTICLE_COLOR = '#d8d8d8';
@@ -9,7 +9,7 @@ export class Particle {
 	constructor(
 		private plainSize: IPlainSize,
 		private particleRenderer: IParticleRenderer,
-		public readonly position: CartesianSystemType,
+		public readonly position: Position,
 		private angle: number,
 		private readonly radius: number
 	) {}

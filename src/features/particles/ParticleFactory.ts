@@ -3,7 +3,6 @@ import { Particle } from './Particle';
 import { randomValue } from '../../utils/randomValue';
 import { randomPosition } from '../../utils/randomPosition';
 import { IPlainManager } from '../plain/IPlainManager';
-import { CartesianSystemType } from '../../types/CartesianSystemType';
 import { IParticleFactory } from './IParticleFactory';
 import { IPlainSize } from '../plain/IPlainSize';
 
@@ -18,7 +17,7 @@ export class ParticleFactory implements IParticleFactory {
 	}
 
 	public create = (
-		position: CartesianSystemType = randomPosition(
+		position = randomPosition(
 			this.plainSize.getWidth(),
 			this.plainSize.getHeight()
 		)
