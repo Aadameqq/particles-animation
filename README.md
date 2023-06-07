@@ -21,7 +21,8 @@ and then open `http://localhost:8080`
 npm ci
 npm run build
 ```
-and then open `dist/index.html` file in browser
+and then open `./
+dist/index.html` file in browser
 
 ## 🔍 Preview
 
