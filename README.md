@@ -25,5 +25,5 @@ and then open `dist/index.html` file in browser
 
 ## 🔍 Preview
 
-https://particles-animation-aadameqq.vercel.app/
+https://aadameqq.github.io/particles-animation
 
