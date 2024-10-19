@@ -1,13 +1,11 @@
-<h1 align="center">Particles Animation</h1>
+# Particles Animation
 
 ![img.png](img.png)
 ## 📰 About
 
-The project was created using <b><a href="https://www.typescriptlang.org/">Typescript</a></b>. Each particle has a connection to another when they are close enough. The thickness of the line connecting the particles depends on their distance.
-<b>Clicking</b> on the screen will <b>create</b> a <b>new particle</b> at cursor position. 
-<br> In this project, I tried to follow the principles of <b>clean code</b> and make most of the code <b>reusable</b>.
+The project is built with TypeScript. Particles connect to each other when they are close enough, and the thickness of the connecting line varies based on their distance. Clicking on the screen adds a new particle at the cursor's position. Throughout the project, I aimed to follow clean code principles and ensure that most of the code is reusable.
 
-## 🔧 Run application
+## 🔧 Run locally
 
 ### with docker
 ```
